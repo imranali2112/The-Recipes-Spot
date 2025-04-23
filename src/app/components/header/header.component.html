@@ -1,0 +1,57 @@
+<nav class="bg-green-700 text-white">
+    <div class="flex justify-between items-center p-4 md:px-10">
+      <!-- Logo and Title -->
+      <div class="flex items-center">
+        <img src="assets/images/logo.png" alt="Logo" class="w-12 h-12 rounded-full" />
+        <div class="ms-2">
+          <span class="text-xl md:text-2xl font-bold">The Recipes Spot</span><br>
+          <span class="text-sm ms-2">Subtitle Here</span>
+        </div>
+      </div>
+  
+      <!-- Hamburger Toggle -->
+      <div class="lg:hidden">
+        <label for="menu-toggle" class="cursor-pointer">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </label>
+      </div>
+  
+      <!-- Desktop Menu -->
+      <ul class="hidden lg:flex space-x-6 items-center">
+        <li><a routerLink="/" routerLinkActive="active" class="hover:underline">Home</a></li>
+        <li><a routerLink="/about-us" routerLinkActive="active" class="hover:underline">About Us</a></li>
+        <li><a routerLink="/add-recipes" routerLinkActive="active" class="hover:underline">Add Recipe</a></li>
+         <li><a routerLink="/recipes-list" routerLinkActive="active" class="hover:underline">Recipe List</a></li>
+        <li>
+          <select class="text-black rounded px-2 py-1">
+            <option>EN</option>
+            <option>UR</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Hidden Checkbox Toggle -->
+    <input type="checkbox" id="menu-toggle" class="hidden peer" />
+  
+    <!-- Mobile Menu -->
+    <div class="peer-checked:block hidden lg:hidden bg-green-700">
+      <ul class="flex flex-col space-y-4 p-4">
+        <li><a href="/" class="hover:underline">Home</a></li>
+        <li><a href="/about-us" class="hover:underline">About Us</a></li>
+        <li><a href="/add-recipes" class="hover:underline">Add Recipe</a></li>
+        <li><a href="/recipes-list" class="hover:underline">Recipe List</a></li>
+        <li>
+          <select class="bg-amber-50 text-black rounded px-2 py-1">
+            <option>English</option>
+            <option>Urud</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  

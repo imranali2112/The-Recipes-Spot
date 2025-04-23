@@ -1,0 +1,12 @@
+specVersion: "v1"
+serviceId: "the-recipes-spot"
+location: "us-central1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "the-recipes-spot-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]

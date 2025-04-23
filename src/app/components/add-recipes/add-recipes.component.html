@@ -1,0 +1,51 @@
+<div>
+    <div class="flex m-auto gap-4 p-4 md:ms-10 md:me-10">
+        <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="m-auto w-[100%] lg:w-[60%] border rounded p-6"
+            style="background-color: rgb(255, 254, 252);">
+            <h2 class="flex justify-center items-center mb-6 text-2xl font-semibold">Add New Recipe</h2>
+            
+
+            <!-- Title Input -->
+            <p-inputgroup class="border rounded">
+                <input pInputText placeholder="Title" formControlName="title" class="w-full p-2" />
+            </p-inputgroup>
+
+            <!-- Description Textarea -->
+            <p-inputgroup class="rounded mt-4">
+                <textarea rows="5" cols="30" formControlName="description" class="w-full p-1" pTextarea
+                    placeholder="Description"></textarea>
+            </p-inputgroup>
+
+            <!-- Category Dropdown -->
+            <p-inputgroup class="rounded mt-4">
+                <p-select [options]="categories" formControlName="category" placeholder="Category"
+                    class="border"></p-select>
+            </p-inputgroup>
+
+
+            <!-- Ingredients Textarea -->
+            <p-inputgroup class="rounded mt-4">
+                <textarea rows="5" cols="30" class="w-full" formControlName="ingredients" pTextarea
+                    placeholder="Ingredients"></textarea>
+            </p-inputgroup>
+
+            <p-inputgroup class="rounded mt-4">
+                <textarea rows="5" cols="30" class="w-full" formControlName="cooking_instructions" pTextarea
+                    placeholder="Cooking Instructions"></textarea>
+            </p-inputgroup>
+
+            <!-- File Upload -->
+            <p-inputgroup class="mt-4">
+                <p-fileUpload name="image" mode="basic" accept="image/*" (onSelect)="onFileSelected($event)"
+                    [auto]="true" chooseLabel="Choose Image">
+                </p-fileUpload>
+            </p-inputgroup>
+
+            <!-- Submit Button -->
+            <p-inputgroup class="mt-4">
+                <p-button label="Submit" type="submit" [disabled]="recipeForm.invalid " />
+            </p-inputgroup>
+        </form>
+    </div>
+</div>
+
