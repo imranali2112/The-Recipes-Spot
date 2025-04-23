@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { environment } from '../../../environment';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc, getDocs, query, orderBy, startAt, endAt, doc, getDoc, deleteDoc } from 'firebase/firestore';
+import { getFirestore, limit, collection, addDoc, getDocs, query, orderBy, startAt, endAt, doc, getDoc, deleteDoc } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 import { RecipesInterface } from '../../interface/recipes-interface';
 
@@ -125,6 +125,26 @@ export class FirebaseService {
     }
   }
 
+  async getLimitedRecipes(limitCount: number = 4): Promise<RecipesInterface[]> {
+    this.loading.set(true);
+    this.errorOccurred.set(null);
+    try {
+      const q = query(collection(this.db, 'recipes'), orderBy('title'), limit(limitCount));
+      const snapshot = await getDocs(q);
+      const limitedRecipes: RecipesInterface[] = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })) as RecipesInterface[];
+      return limitedRecipes;
+    } catch (error) {
+      console.error('Error fetching limited recipes:', error);
+      this.errorOccurred.set('Failed to fetch limited recipes.');
+      return [];
+    } finally {
+      this.loading.set(false);
+    }
+  }
+  
   async deleteRecipe(recipeId: string): Promise<void> {
     try {
       await deleteDoc(doc(this.db, 'recipes', recipeId));
