@@ -14,6 +14,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { FirebaseService } from '../../service/recipe-service/recipe.service';
 import { SelectModule } from 'primeng/select';
 import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-add-recipes',
@@ -31,6 +32,7 @@ import { MessageService } from 'primeng/api';
     ButtonModule,
     SelectButtonModule,
     SelectModule,
+    ToastModule
   ],
   providers: [FirebaseService, MessageService],
   templateUrl: './add-recipes.component.html',

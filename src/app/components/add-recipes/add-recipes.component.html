@@ -3,7 +3,7 @@
         <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="m-auto w-[100%] lg:w-[60%] border rounded p-6"
             style="background-color: rgb(255, 254, 252);">
             <h2 class="flex justify-center items-center mb-6 text-2xl font-semibold">Add New Recipe</h2>
-            
+
 
             <!-- Title Input -->
             <p-inputgroup class="border rounded">
@@ -43,9 +43,10 @@
 
             <!-- Submit Button -->
             <p-inputgroup class="mt-4">
-                <p-button label="Submit" type="submit" [disabled]="recipeForm.invalid " />
+                <p-button label="Submit" type="submit" [disabled]="recipeForm.invalid " label="Submit" />
             </p-inputgroup>
+            <p-toast [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+           
         </form>
     </div>
 </div>
-

@@ -1,7 +1,7 @@
 <p-carousel [value]="banner" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="5000"
     class=" recipeSite mt-5">
     <ng-template let-bannerItem pTemplate="item">
-        <div class="w-full lg:h-[600px] overflow-hidden recipeBanner mt-3">
+        <div class="w-full h-full lg:h-[600px] overflow-hidden recipeBanner mt-3">
             <img [src]="bannerItem.img" alt="Banner Image" class="w-full h-full rounded-lg">
         </div>
     </ng-template>
@@ -31,7 +31,7 @@
     </div>
     <div class="flex justify-center items-center mb-4">
         <a href="/recipes-list" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-        Get All Recipes Here
+            Get All Recipes Here
         </a>
-      </div>      
+    </div>
 </div>
